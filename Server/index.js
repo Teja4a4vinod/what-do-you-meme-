@@ -2,8 +2,6 @@
 
 
 /*
- 
-
 const flatten=require('array-flatten');
 var myArr= [
     ["hello", "world"],
@@ -12,8 +10,9 @@ var myArr= [
 ];
 
 */
-/* run it using node index.js*/
 
+
+/* run it using node index.js*/
 /*
 //create server object:
 const http= require('http');
@@ -69,6 +68,7 @@ app.listen(8080);
 var express = require('express')
 var app = express()
 
+
 // respond with "hello world" when a GET request is made to the homepage
 app.use(function(req, res, next){
     res.write('This is testing use method');
@@ -85,7 +85,20 @@ app.get('/goodbye', function (req, res) {
   });
 
 app.listen(8080);
+
 */
+
+var express = require('express');
+var app = express();
+
+const simple = require('./simpleController');
+const port = 8080;
+const servername= "localhost";
+app.use(simple)
+app.listen(port);
+console.log("running on http://" + servername +":" + port)
+
+
 
 
 /*
@@ -101,6 +114,8 @@ app.listen(8080);
 
 */
 
+
+/*
 //Dynamic routes
 var express= require('express');
 var app= express();
@@ -110,3 +125,4 @@ app.get('/:id', function(req,res){
 });
 
 app.listen(8080);
+*/
