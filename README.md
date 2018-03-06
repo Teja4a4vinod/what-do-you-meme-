@@ -1,13 +1,27 @@
-# what-do-you-meme-
-This is my first project in web server programming course
+# Project
 
-I am Tejaswini Utlapalli and I am from India. I have completed my bachelor's degree in electronics and communications engineering.I have studied C language during my UG program and Learned Java programming in my first semester of master's program.
-Right after completion of undergraduate studies, I secured a job at Mindtree Limited, a leading multinational IT and outsourcing company, I have completed 2.6 years of working in Mindtree. After joining in Mindtree, I have undergone the training on 4 modules (Database, Linux, Networking, and Windows) for the period of 3 months and after that I have been assigned to a project called “Catalina” which is one of the leading digital marketing companies. I contributed myself towards network operations center(NOC) for 1 year and worked as a part of the Database team for the remaining time. I have learned about different tools like Afaria, PRTG, Nagios, Salesforce, Mwatch, and technologies like Linux, Windows, Networking, and Virtual desktop infrastructure(VDI) when I worked as a NOC engineer.
-During my tenure as a DB admin, I have learned about working on SQL, Oracle servers, and working on DBMS. I am currently on a sabbatical leave to study my master's and I will be going back to work for Mindtree Ltd after finishing my studies.
+This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.7.2.
 
-After looking at the outline of this course, I feel that I can learn about Angular (aka 5.x) (Which is a good framework, it let us extend HTML vocabulary for the applications), HTML, CSS, jQuery, Bootstrap, Node, Web pack, TypeScript, RxJs, and using GitHub (I just realized that, most of the people in IT industry are using this software to store their data).
-I will be able to design and create my own web page once I am good at HTML,CSS,Bootstrap and Angular.
-I am always interested to learn and try different things.This course will help me to learn the things which I never studied before. 
-Learning all these technologies will boost my skills. As Mindtree is a service-based company, it has many different clients. So, if I have the skills in different technologies, that helps me to get into the good project where I get the opportunity to utilize my skills and learn new skills.
-Hoping to be an HTML\JavaScript\CSS ninja and to be good at other different technologies by the time I complete this course.
+## Development server
 
+Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+
+## Code scaffolding
+
+Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+
+## Build
+
+Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `-prod` flag for a production build.
+
+## Running unit tests
+
+Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+
+## Running end-to-end tests
+
+Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+
+## Further help
+
+To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).

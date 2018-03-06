@@ -27,7 +27,7 @@ console.log("Listensing on http://localhost:8080");
 
 
 
-/*
+
 //Express routing example
 var express = require('express')
 var app = express()
@@ -38,7 +38,7 @@ app.get('/', function (req, res) {
 })
 
 app.listen(8080);
-*/
+
 
 
 /*
@@ -59,7 +59,7 @@ app.get('/goodbye', function (req, res) {
   })
 
 app.listen(8080);
-*/
+
 
 
 
@@ -86,7 +86,7 @@ app.get('/goodbye', function (req, res) {
 
 app.listen(8080);
 
-*/
+
 
 var express = require('express');
 var app = express();
