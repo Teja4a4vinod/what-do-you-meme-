@@ -27,7 +27,7 @@ console.log("Listensing on http://localhost:8080");
 
 
 
-
+/*
 //Express routing example
 var express = require('express')
 var app = express()
@@ -38,6 +38,7 @@ app.get('/', function (req, res) {
 })
 
 app.listen(8080);
+*/
 
 
 
@@ -124,3 +125,16 @@ app.get('/:id', function(req,res){
 
 app.listen(8080);
 */
+
+var express = require('express')
+var app = express()
+
+const servername = "localhost";
+const port = 8080;
+
+const simple = require('./simpleController');
+
+
+app.use('/simple', simple).listen(port);
+
+console.log("running on http://" + servername + ":" + port)

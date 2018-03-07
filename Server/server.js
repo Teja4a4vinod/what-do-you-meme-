@@ -8,6 +8,9 @@ router.use(function(req,res,next){
     next();
 });
 
+router.get("/login", function(req, res){
+    res.sendFile(path + "login.html");
+});
 router.get("/", function(req,res){
     res.sendFile(path + "index.html");
 });
