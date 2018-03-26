@@ -16,4 +16,8 @@ export class GameComponent implements OnInit {
   ngOnInit() {
   }
 
+submitQuote(e: MouseEvent,text: string, PlayerName: string){
+e.preventDefault();
+this.Model.PlayedQuotes.push({Text: text,PlayerName: PlayerName, Chosen: false });
+  }
 }
