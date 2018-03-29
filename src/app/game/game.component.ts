@@ -12,7 +12,7 @@ export class GameComponent implements OnInit {
     Me = new User();
 
   constructor() {
-    this.Me.Name = "Tejaswini Utlapalli"
+    this.Me.Name = "Moshe Plotkin"
   }
 
   ngOnInit() {
@@ -27,9 +27,8 @@ export class GameComponent implements OnInit {
     this.Model.MyQuotes.splice( this.Model.MyQuotes.indexOf(text), 1 );
   }
 
-  MyPlayedQuote=()=>this.Model.PlayedQuotes.find( x => x.PlayerName == this.Me.Name );
-  ChosenQuote = ()=>this.Model.PlayedQuotes.find(x=>x.Chosen);
-  IsEveryoneDone = ()=>this.Model.PlayedQuotes.length==this.Model.Players.length-1;
-  IAmTheDealer=()=>this.Me.Name==this.Model.Dealer;
-
+  MyPlayedQuote = () => this.Model.PlayedQuotes.find( x => x.PlayerName == this.Me.Name );
+  ChosenQuote = () => this.Model.PlayedQuotes.find( x => x.Chosen );
+  IsEveryoneDone = () => this.Model.PlayedQuotes.length == this.Model.Players.length - 1;
+  IAmTheDealer = () => this.Me.Name == this.Model.Dealer;
 }

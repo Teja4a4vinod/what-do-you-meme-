@@ -1,12 +1,9 @@
 .my-quotes {
     cursor: not-allowed;
-
 }
-
 .my-quotes .enabled {
-    cursor:pointer;
+    cursor: pointer;
 }
-
 .my-quotes .enabled:hover {
-    background-color:#DDEEFF;
+    background-color: #DDEEFF;
 }

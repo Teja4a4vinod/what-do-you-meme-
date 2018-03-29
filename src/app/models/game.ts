@@ -1,10 +1,17 @@
-
 export class Game {
-    MyQuotes: string[] = ["Great Minds think alikebut...","Life is beautiful","Nothing is impossible"];
-    Players: User[] = [ { Name: 'Tejaswini' },{ Name: 'Surekha' },{ Name: 'Keerthi' },{ Name: 'Roja' }];
+    MyQuotes: string[] = [
+        "Great Minds think alikebut...","Life is beautiful","Nothing is impossible"
+    ];
+    Players: User[] = [
+        { Name: 'Tejaswini' },
+        { Name: 'Surekha' },
+        { Name: 'Keerthi' },        
+    ];
+    Dealer: string = "Moshe Plotkin";
     Picture: string = 'http://f8rentals.com/wp-content/uploads/2015/03/IMG_0067ft.jpg?189db0';
-    PlayedQuotes: Quote[] = [{Text: "That's fake news", PlayerName: 'Surekha', Chosen:false}];
-    Dealer:string="Tejaswini";
+    PlayedQuotes: Quote[] = [
+        { Text: "That's fake news", PlayerName: 'Donald Trump', Chosen: false }
+    ];
 }
 
 export class User {
