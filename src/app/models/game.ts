@@ -1,14 +1,12 @@
 export class Game {
-    MyQuotes: string[] = [
-        "Great Minds think alikebut...","Life is beautiful","Nothing is impossible"
-    ];
+
     Players: User[] = [
-        { Name: 'Tejaswini' },
-        { Name: 'Surekha' },
-        { Name: 'Keerthi' },        
+        { Name: 'Tejaswini', MyQuotes: [] },
+        { Name: 'Donald Trump', MyQuotes: [] },
+        { Name: 'Barak Obama', MyQuotes: [] },        
     ];
-    Dealer: string = "Moshe Plotkin";
-    Picture: string = 'http://f8rentals.com/wp-content/uploads/2015/03/IMG_0067ft.jpg?189db0';
+    Dealer: string = "Tejaswini";
+    Picture: string = 'https://media3.s-nbcnews.com/j/msnbc/components/video/201803/tdy_news_welker_trump_180315_1920x1080.nbcnews-ux-1080-600.jpg';
     PlayedQuotes: Quote[] = [
         { Text: "That's fake news", PlayerName: 'Donald Trump', Chosen: false }
     ];
@@ -16,6 +14,7 @@ export class Game {
 
 export class User {
     Name: string;
+    MyQuotes: string[];
 }
 
 export class Quote {

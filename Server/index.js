@@ -143,6 +143,11 @@ const game = require('./game/controller');
 
 
 app
+    .use('/', (req, res, next) => {
+        res.header("Access-Control-Allow-Origin", "*");
+        res.header("Access-Control-Allow-Headers", "*");
+        next();      
+    })
     .use('/simple', simple)
     .use('/game', game)
     .listen(port);
