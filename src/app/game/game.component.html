@@ -1,7 +1,16 @@
 <div class="row" *ngIf="!Me">
-    <input #Name /><button (click)="login(Name.value)" >Login</button>
+    <input #Name /><button (click)="login(Name.value)"  >Login</button>
 </div>
 <div class="row" *ngIf="Me">
+    <div class="row" *ngIf="!Dealer"> 
+        <div class="col-md-4">
+        
+                <div class="card" >
+                    <div class="card-header">Dealer</div>
+                            {{player.Name}}
+                </div>
+         </div>
+    </div>
     <div class="col-md-4">
         
         <div class="card" >
@@ -38,7 +47,7 @@
             <div class="card">
                 <img class="card-img" *ngIf="Model.Picture" [src]="Model.Picture.url" />
                 <div class="card-img-overlay" style="text-align: center">
-                    <button class="btn btn-success btn-lg" (click)="flipPicture($event)">Flip the Picture</button>
+                    <button class="btn btn-success btn-lg *ngIf=Dealer" (click)="flipPicture($event)">Flip the Picture</button>
                 </div>
             </div>
     </div>
