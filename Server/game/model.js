@@ -137,9 +137,8 @@ function Game() {
         this.SubmitQuote = (text, playerId) => this.PlayedQuotes.push({ Text: text, PlayerId: playerId });
         this.ChooseQuote = text => {
             this.PlayedQuotes.find(x=> x.Text == text).Chosen = true;
-            this.DealerId = this.Players[this.DealerId = (this.DealerId + 1) % this.Players.length ] 
+            this.DealerId = this.Players[this.DealerId = (this.DealerId + 1) % this.Players.length ]
         } 
 
 }
-
 module.exports = Game;

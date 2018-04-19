@@ -1,7 +1,7 @@
 export class Game {
 
     Players: User[] = [];
-    DealerId: string;
+    DealerId: string=null;
     Picture: {
         url: string
     };

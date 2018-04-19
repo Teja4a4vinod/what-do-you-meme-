@@ -11,7 +11,7 @@ export class GameComponent implements OnInit {
 
     Model = new Game();
     Me: User;
-    Dealer:User;
+    Dealer:string;
     private _api = "http://localhost:8080/game";
 
   constructor(private http: Http) {
@@ -27,13 +27,14 @@ export class GameComponent implements OnInit {
   }
 
   flipPicture(e: MouseEvent){
-    if(this.IAmTheDealer){
+    if(this.IAmTheDealer()){
     this.http.post(this._api + "/picture",{})
         .subscribe();
   }
   }
+  
   submitQuote(e: MouseEvent, text: string){
-    if(this.IAmTheDealer){
+    if(this.IAmTheDealer()){
       e.preventDefault();
     }
 
@@ -47,14 +48,22 @@ export class GameComponent implements OnInit {
         });
   }
 
-  login(name: string){
+    login(name: string){
     this.http.get(this._api + "/quotes", { params : { playerId: name } })
-    .subscribe(data=> this.Me =  {Name: name,MyQuotes: data.json() } )
-    
-  }
-
+    .subscribe(data=> this.Me =  {Name: name,MyQuotes: data.json() } )  
+    }
+    DealerIsEmpty(){
+      if(this.Model.DealerId == null){
+          this.Model.DealerId=this.Me.Name;
+          return true;
+      }
+      else{
+        return false;
+      }
+    }
   MyPlayedQuote = () => this.Model.PlayedQuotes.find( x => x.PlayerId == this.Me.Name );
   ChosenQuote = () => this.Model.PlayedQuotes.find( x => x.Chosen );
   IsEveryoneDone = () => this.Model.PlayedQuotes.length == this.Model.Players.length - 1;
   IAmTheDealer = () => this.Me.Name == this.Model.DealerId;
+ 
 }
