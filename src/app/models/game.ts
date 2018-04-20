@@ -7,7 +7,6 @@ export class Game {
     };
     PlayedQuotes: Quote[] = [];
 }
-
 export class User {
     Name: string;
     MyQuotes: string[];
