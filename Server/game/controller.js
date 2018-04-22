@@ -11,6 +11,10 @@ module.exports = app
      res.send( game.GetQuotes(req.query.playerId) ) 
     )
     .get('/state', (req, res) => res.send(game))
+    .post('/quotes/choose', (req,res) =>{
+            game.ChooseQuote(req.body.text);
+            res.send({success: true})
+    })
     .post('/picture', (req, res) => res.send( game.FlipPicture() ))
     .post('/quotes', (req, res) => {
         console.log(req.body);

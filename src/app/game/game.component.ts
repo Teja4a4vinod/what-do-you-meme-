@@ -11,7 +11,7 @@ export class GameComponent implements OnInit {
 
     Model = new Game();
     Me: User;
-    Dealer:string;
+    DealerId:string;
     private _api = "http://localhost:8080/game";
 
   constructor(private http: Http) {
@@ -34,11 +34,10 @@ export class GameComponent implements OnInit {
   }
   
   submitQuote(e: MouseEvent, text: string){
-    if(this.IAmTheDealer()){
+   
       e.preventDefault();
-    }
 
-    if(this.MyPlayedQuote()) return;
+    if(this.MyPlayedQuote() || this.IAmTheDealer()) return;
 
     this.http.post(this._api + "/quotes", { Text: text, PlayerId: this.Me.Name })
         .subscribe(data=> {
@@ -53,8 +52,13 @@ export class GameComponent implements OnInit {
     .subscribe(data=> this.Me =  {Name: name,MyQuotes: data.json() } )  
     }
     
+    chooseQuote(e: MouseEvent, text:string){
+      this.http.post(this._api+ "/quotes/choose", { params: {Text: text}})
+      .subscribe();
+    }
   MyPlayedQuote = () => this.Model.PlayedQuotes.find( x => x.PlayerId == this.Me.Name );
   ChosenQuote = () => this.Model.PlayedQuotes.find( x => x.Chosen );
   IsEveryoneDone = () => this.Model.PlayedQuotes.length == this.Model.Players.length - 1;
   IAmTheDealer = () => this.Me.Name == this.Model.DealerId;
+  
 }

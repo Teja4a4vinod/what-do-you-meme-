@@ -125,26 +125,38 @@ function Game() {
         this.PlayedQuotes = [];
         this.Picture = null;
 
-        this.GetQuotes = (playerId) => {
-            if(this.Players.some(x=> x.PlayerId == playerId)){
+        this.GetQuotes = (playerId) => 
+        {
+            
+            if(this.Players.some(x=> x.PlayerId == playerId))
+                {
                 
-            }else if(this.DealerId==null){
-                    this.DealerId=this.playerId;
+                }
+            else if(this.DealerId==null)
+                {
+                    this.DealerId=playerId;
                     this.Players.push({ PlayerId: playerId, Name: playerId });
-            }else{
-                this.Players.push({ PlayerId: playerId, Name: playerId });   
-            }
-                 return QuotesStack.slice(iCurrentQuote, iCurrentQuote += 7);   
-            }
+                }
+            else
+                {
+                    this.Players.push({ PlayerId: playerId, Name: playerId });   
+                }
+            return QuotesStack.slice(iCurrentQuote, iCurrentQuote += 7);   
+        }
 
-            }
         
-        this.FlipPicture = () => this.Picture = PicturesStack[iCurrentPicture = (iCurrentPicture+1) % PicturesStack.length ];
-
-        this.SubmitQuote = (text, playerId) => this.PlayedQuotes.push({ Text: text, PlayerId: playerId });
+        this.FlipPicture = () => {
+            this.DealerId,this.Picture = PicturesStack[iCurrentPicture = (iCurrentPicture+1) % PicturesStack.length ];
+        }
+    
+        this.SubmitQuote = (text, playerId) => {
+            if(playerId!=this.DealerId){
+            this.PlayedQuotes.push({ Text: text, PlayerId: playerId });
+            }
+        } 
         this.ChooseQuote = text => {
             this.PlayedQuotes.find(x=> x.Text == text).Chosen = true;
-            this.DealerId = this.Players[this.DealerId = (this.DealerId + 1) % this.Players.length ]
+            this.DealerId = Players[this.Players.findIndex(x => x.playerId==this.DealerId)+1].playerId
         } 
-
+    }
 module.exports = Game;
