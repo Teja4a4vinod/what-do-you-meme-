@@ -105,8 +105,6 @@ const QuotesStack =  [
 
 var iCurrentQuote = 0;
 
-var DealerStack = [];
-
 var PicturesStack = [
     "https://media3.s-nbcnews.com/j/newscms/2018_14/2387596/180404-oklahoma-city-capitol-teacher-protest-ew-323p_93b119734c532d143960db8f96475eaf.focal-1000x500.jpg",
     "https://media1.s-nbcnews.com/j/newscms/2018_14/2387601/180404-oklahoma-city-capitol-teacher-protest-ew-322p_f37368c21208ba28395347307828b056.fit-560w.jpg"
@@ -125,38 +123,35 @@ function Game() {
         this.PlayedQuotes = [];
         this.Picture = null;
 
-        this.GetQuotes = (playerId) => 
-        {
-            
-            if(this.Players.some(x=> x.PlayerId == playerId))
-                {
+        // remember. This is our login function. It s the function that gets called when a user sends joins for the first time.
+        this.GetQuotes = (playerId) => {
+            if(!this.DealerId){
+                this.DealerId = playerId;
+            }
+            if(this.Players.some(x=> x.PlayerId == playerId)){
                 
-                }
-            else if(this.DealerId==null)
-                {
-                    this.DealerId=playerId;
-                    this.Players.push({ PlayerId: playerId, Name: playerId });
-                }
-            else
-                {
-                    this.Players.push({ PlayerId: playerId, Name: playerId });   
-                }
-            return QuotesStack.slice(iCurrentQuote, iCurrentQuote += 7);   
+            }else{
+                this.Players.push({ PlayerId: playerId, Name: playerId, Score: 0 });
+            }
+                return QuotesStack.slice(iCurrentQuote, iCurrentQuote += 7);   
         }
-
         
         this.FlipPicture = () => {
-            this.DealerId,this.Picture = PicturesStack[iCurrentPicture = (iCurrentPicture+1) % PicturesStack.length ];
-        }
-    
+            this.Picture = PicturesStack[iCurrentPicture = (iCurrentPicture+1) % PicturesStack.length ];
+            this.PlayedQuotes = [];
+        } 
+
         this.SubmitQuote = (text, playerId) => {
-            if(playerId!=this.DealerId){
+            if(playerId == this.DealerId) throw Error("Dealer can't submit a quote");
             this.PlayedQuotes.push({ Text: text, PlayerId: playerId });
-            }
         } 
         this.ChooseQuote = text => {
-            this.PlayedQuotes.find(x=> x.Text == text).Chosen = true;
-            this.DealerId = Players[this.Players.findIndex(x => x.playerId==this.DealerId)+1].playerId
+            const chosenQuote = this.PlayedQuotes.find(x=> x.Text == text)
+            chosenQuote.Chosen = true;
+            this.Players.find(x=> x.PlayerId == chosenQuote.PlayerId).Score++;
+            this.DealerId = this.Players[this.Players.findIndex(x=> x.PlayerId == this.DealerId)  + 1 % this.Players.length ].PlayerId; 
         } 
-    }
+
+}
+
 module.exports = Game;
